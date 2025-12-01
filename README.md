@@ -15,6 +15,17 @@ and the Flutter guide for
 A Flutter package that provides a widget to preview thermal printer output for
 Senraise Thermal Printers.
 
+[![pub package](https://img.shields.io/pub/v/thermal_printer_preview.svg)](https://pub.dev/packages/thermal_printer_preview)
+## Overview
+The `thermal_printer_preview` package allows developers to easily preview the
+output of thermal printers within their Flutter applications. It supports various
+text alignments and formatting options, making it a versatile tool for
+developers working with thermal printers.
+
+Print to device is support for Senraise Thermal Printers using the
+[senraise_thermal_printer](https://pub.dev/packages/senraise_thermal_printer)
+package included in the `thermal_printer_preview` package.
+
 ## Features
 
 - Preview thermal printer output in a Flutter application.
@@ -106,6 +117,14 @@ Future<void> _generatePreview() async {
 ThermalPrinterPreviewWidget(
     fragments: _printerEmulator.getFragments()
 );
+
+// To print to device
+ElevatedButton(
+    onPressed: () async {
+        await _printerEmulator.printToDevice();
+    },
+    child: Text('Print to Device'),
+),
 
 ```
 
